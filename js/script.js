@@ -137,7 +137,7 @@ function updateMusicButton(isPlaying) {
         if (musicButtonText) {
 
             musicButtonText.textContent =
-                "Pause Our Song";
+                "Pause Voice Note";
 
         }
 
@@ -167,7 +167,7 @@ function updateMusicButton(isPlaying) {
         if (musicButtonText) {
 
             musicButtonText.textContent =
-                "Play Our Song";
+                "Play Voice Note";
 
         }
 
@@ -235,6 +235,23 @@ if (birthdayMusic) {
     birthdayMusic.addEventListener(
         "pause",
         () => {
+
+            updateMusicButton(false);
+
+        }
+    );
+
+    /*
+     * When the voice note finishes naturally,
+     * reset it to the beginning and return the
+     * button to the "Play Voice Note" state.
+     */
+
+    birthdayMusic.addEventListener(
+        "ended",
+        () => {
+
+            birthdayMusic.currentTime = 0;
 
             updateMusicButton(false);
 
